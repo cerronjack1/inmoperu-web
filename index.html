@@ -1,34 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-28EQ7P9XXJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-28EQ7P9XXJ');
-</script>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1444877987699832');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1444877987699832&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InmoPerú · Proyectos en Preventa</title>
@@ -198,18 +170,10 @@ ${top3.map((p,k)=>`<div class="res-card"><h4>${k+1}. ${p.n}</h4><p style="color:
 
 function enviarWA(){
 const nom=document.getElementById('nombre').value.trim()||"un cliente";
-let txt=`Hola InmoPerú 🏠 Soy ${nom}. Hice el quiz y mi shortlist es:
-`+top3.map((p,k)=>`${k+1}) ${p.n} (${p.z}) - S/ ${p.p.toLocaleString()}`).join("
-");
-txt+=`
-
-Mis respuestas:
-`+a.resp.map((r,k)=>`${k+1}. ${r}`).join("
-");
+let txt=`Hola InmoPerú 🏠 Soy ${nom}. Hice el quiz y mi shortlist es:\n`+top3.map((p,k)=>`${k+1}) ${p.n} (${p.z}) - S/ ${p.p.toLocaleString()}`).join("\n");
+txt+=`\n\nMis respuestas:\n`+a.resp.map((r,k)=>`${k+1}. ${r}`).join("\n");
 const con=document.getElementById('contacto').value.trim();
-if(con)txt+=`
-Mi contacto: ${con}`;
-if(typeof fbq==="function")fbq("track","Lead");
+if(con)txt+=`\nMi contacto: ${con}`;
 window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(txt));
 }
 </script>
